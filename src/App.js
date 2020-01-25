@@ -13,15 +13,9 @@ class App extends Component {
 
     this.state = {
       threshold: 0.6,
-      data:[{"variable1": "varA","var1_domain": "domain3","variable2": "varV","var2_domain": "domain3","coef": "-0.40238348440349847","value": "0.40238348440349847","linkColour": "#c1cc3d", "rounded": "-0.402"},
-    {"variable1": "varG","var1_domain": "domain6","variable2": "varI","var2_domain": "domain3","coef": "0.7869249499775308","value": "0.7869249499775308","linkColour": "#3dadcc", "rounded": "0.787"},
-    {"variable1": "varU","var1_domain": "domain5","variable2": "varZ","var2_domain": "domain5","coef": "0.5654997321819308","value": "0.5654997321819308","linkColour": "#3dccb1", "rounded": "0.565"},
-    {"variable1": "varL","var1_domain": "domain5","variable2": "varN","var2_domain": "domain1","coef": "-0.44449653725230015","value": "0.44449653725230015","linkColour": "#cccb3d", "rounded": "-0.444"},
-    {"variable1": "varL","var1_domain": "domain6","variable2": "varF","var2_domain": "domain4","coef": "0.4430148325530492","value": "0.4430148325530492","linkColour": "#3dcc92", "rounded": "0.443"},
-    {"variable1": "varW","var1_domain": "domain1","variable2": "varR","var2_domain": "domain5","coef": "0.6158930611854154","value": "0.6158930611854154","linkColour": "#3dccbe", "rounded": "0.616"},
-    {"variable1": "varT","var1_domain": "domain7","variable2": "varD","var2_domain": "domain2","coef": "-0.5467308227741515","value": "0.5467308227741515","linkColour": "#ccb13d", "rounded": "-0.547"},
-    {"variable1": "varH","var1_domain": "domain7","variable2": "varA","var2_domain": "domain5","coef": "-0.4567911618605825","value": "0.4567911618605825","linkColour": "#ccc83d", "rounded": "-0.457"},
-    {"variable1": "varI","var1_domain": "domain8","variable2": "varO","var2_domain": "domain7","coef": "-0.45227245085444834","value": "0.45227245085444834","linkColour": "#ccc93d", "rounded": "-0.452"}    ]};
+      data:[{"variable1": "","var1_domain": "","variable2": "","var2_domain": "","coef": "0","value": "0","linkColour": "#c1cc3d", "rounded": "0"}]};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
   componentDidUpdate() {
@@ -136,16 +130,31 @@ class App extends Component {
           data[i].linkColour = getColourDichromatic(parseFloat(data[i].coef));
           data[i].value = Math.abs(parseFloat(data[i].coef));
           data[i].label = Math.round(parseFloat(data[i].coef) * 1000)/1000;
-        }        
+        }
         that.setState({data: data});
       };
   };
 
+  handleChange(event) {
+    this.setState({threshold: event.target.value});
+  }
+
+  handleSubmit(event){
+    alert('A name was submitted: ' + this.state.threshold);
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div>
+        <form onSubmit={this.handleSubmit}>
+        <label>
+          Threshold: <textarea value={this.state.threshold} onChange={this.handleChange} />
+        </label>
+        <br></br>
         <input type="file" onChange={this.onFileChange} />
-        <div id="chartdiv" style={{ width: "100%", height: "875px" }}></div>
+      </form>
+      <div id="chartdiv" style={{ width: "100%", height: "875px" }}></div>
       </div>
     );
   }
