@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/exposome-globe-app/static/css/main.d1b05096.chunk.css",
+    "main.js": "/exposome-globe-app/static/js/main.9d45ea61.chunk.js",
+    "main.js.map": "/exposome-globe-app/static/js/main.9d45ea61.chunk.js.map",
+    "runtime-main.js": "/exposome-globe-app/static/js/runtime-main.bb344d73.js",
+    "runtime-main.js.map": "/exposome-globe-app/static/js/runtime-main.bb344d73.js.map",
+    "static/js/2.33af256b.chunk.js": "/exposome-globe-app/static/js/2.33af256b.chunk.js",
+    "static/js/2.33af256b.chunk.js.map": "/exposome-globe-app/static/js/2.33af256b.chunk.js.map",
+    "index.html": "/exposome-globe-app/index.html",
+    "precache-manifest.3fe20025cfd27a52cc6f9c3f806b6b4c.js": "/exposome-globe-app/precache-manifest.3fe20025cfd27a52cc6f9c3f806b6b4c.js",
+    "service-worker.js": "/exposome-globe-app/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/exposome-globe-app/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.33af256b.chunk.js.LICENSE": "/exposome-globe-app/static/js/2.33af256b.chunk.js.LICENSE",
+    "static/media/logo.svg": "/exposome-globe-app/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bb344d73.js",
+    "static/js/2.33af256b.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.9d45ea61.chunk.js"
+  ]
+}
