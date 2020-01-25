@@ -153,7 +153,7 @@ class App extends Component {
 
 function loadCSV(text) {
   let arr = text.split("\n");
-  let header = arr[0].split(",");
+  let header = ["variable1","var1_domain","variable2","var2_domain","coef", "value", "linkColour", "label\r"];
   let data = [];
   for(let i=1; i<arr.length; i++) {
     let row = {};
