@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/exposome-globe-app/precache-manifest.3fe20025cfd27a52cc6f9c3f806b6b4c.js"
+  "/exposome-globe-app/precache-manifest.5b3dd0a07c919bcca3a9d3f509816f0a.js"
 );
 
 self.addEventListener('message', (event) => {
