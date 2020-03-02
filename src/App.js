@@ -16,6 +16,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      test: false,
       threshold: 0.6,
       displayColorPicker: false,
       displayPositiveColorPicker: false,
@@ -179,17 +180,13 @@ class App extends Component {
 
   handlePositiveColorPickerChange = (color) => {
     this.setState({ positiveCorrelationColor: color.rgb })
-    let that = this;
-    let filteredData = that.state.filteredData;
-    for (let i = 0; i < filteredData.length; i++) {
-      let positiveColor = rgbToHex(that.state.positiveCorrelationColor.r, that.state.positiveCorrelationColor.g, that.state.positiveCorrelationColor.b);
-      let negativeColor = rgbToHex(that.state.negativeCorrelationColor.r, that.state.negativeCorrelationColor.g, that.state.negativeCorrelationColor.b);
-      filteredData[i].linkColor = getColorDichromatic(parseFloat(filteredData[i].coef), positiveColor, negativeColor);
-    }
   };
 
   handleNegativeColorPickerChange = (color) => {
     this.setState({ negativeCorrelationColor: color.rgb })
+  };
+
+  handleSubmit = () => {
     let that = this;
     let filteredData = that.state.filteredData;
     for (let i = 0; i < filteredData.length; i++) {
@@ -197,7 +194,8 @@ class App extends Component {
       let negativeColor = rgbToHex(that.state.negativeCorrelationColor.r, that.state.negativeCorrelationColor.g, that.state.negativeCorrelationColor.b);
       filteredData[i].linkColor = getColorDichromatic(parseFloat(filteredData[i].coef), positiveColor, negativeColor);
     }
-  };
+    this.setState({ test: !that.state.est })
+  }
 
   render() {
 
@@ -270,7 +268,7 @@ class App extends Component {
           </label>
           <br />
           <input type="file" onChange={this.onFileChange} />
-          <button>Submit</button>
+          <button onClick={this.handleSubmit}>Submit</button>
         </form>
 
         <div>
