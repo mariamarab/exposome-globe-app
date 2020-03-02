@@ -3,11 +3,13 @@ import './App.css';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
 
 am4core.useTheme(am4themes_animated);
 
 class App extends Component {
-
   constructor(props) {
     super(props);
 
@@ -27,7 +29,7 @@ class App extends Component {
     // Colour settings
     chart.colors.saturation = 0.45;
 
-    chart.data = this.state.data;
+    chart.data = this.state.filteredData;
     // Read data from JSON file
     chart.dataFields.fromName = "var1_domain";
     chart.dataFields.toName = "var2_domain";
@@ -121,22 +123,27 @@ class App extends Component {
       reader.readAsText(file);
       let that = this;
       reader.onload = function(event) {
-        let unfilteredData = loadCSV(event.target.result);
-        let data = unfilteredData.filter(
+        let data = loadCSV(event.target.result);
+        let filteredData = data.filter(
           function(x) { return Math.abs(parseFloat(x.coef)) >= that.state.threshold; }
         );
-
-        for(let i=0; i<data.length; i++){
-          data[i].linkColour = getColourDichromatic(parseFloat(data[i].coef));
-          data[i].value = Math.abs(parseFloat(data[i].coef));
-          data[i].label = Math.round(parseFloat(data[i].coef) * 1000)/1000;
+        for(let i=0; i<filteredData.length; i++){
+          filteredData[i].linkColour = getColourDichromatic(parseFloat(filteredData[i].coef));
+          filteredData[i].value = Math.abs(parseFloat(filteredData[i].coef));
+          filteredData[i].label = Math.round(parseFloat(filteredData[i].coef) * 1000)/1000;
         }
         that.setState({data: data});
+        that.setState({filteredData: filteredData});
       };
   };
 
   handleChange(event) {
+    let that = this;
+    let filteredData = this.state.data.filter(
+      function(x) { return Math.abs(parseFloat(x.coef)) >= event.target.value; }
+    );
     this.setState({threshold: event.target.value});
+    this.setState({filteredData: filteredData});
   }
 
   handleSubmit(event){
@@ -153,6 +160,16 @@ class App extends Component {
         </label>
         <br></br>
         <input type="file" onChange={this.onFileChange} />
+        <input
+        accept="/*"
+        id="text-button-file"
+        multiple
+        type="file"
+        onChange={this.onFileChange}
+      />
+      <label htmlFor="text-button-file">
+        <Button component="span">Upload</Button>
+      </label>
       </form>
       <div id="chartdiv" style={{ width: "100%", height: "875px" }}></div>
       </div>
