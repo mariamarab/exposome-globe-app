@@ -268,9 +268,9 @@ class App extends Component {
           </label>
           <br />
           <input type="file" onChange={this.onFileChange} />
-          <button onClick={this.handleSubmit}>Submit</button>
         </form>
-
+        <br/>
+        <br/>
         <div>
           <div style={positiveStyles.swatch} onClick={this.handlePositiveColorPickerButtonClick}>
             <div style={positiveStyles.color} />
@@ -279,6 +279,7 @@ class App extends Component {
             <div style={positiveStyles.cover} onClick={this.handlePositiveColorPickerClose} />
             <SketchPicker color={this.state.positiveCorrelationColor} onChange={this.handlePositiveColorPickerChange} />
           </div> : null}
+          <button onClick={this.handleSubmit}>Update colors</button>
         </div>
 
         <div>
@@ -290,6 +291,8 @@ class App extends Component {
             <SketchPicker color={this.state.negativeCorrelationColor} onChange={this.handleNegativeColorPickerChange} />
           </div> : null}
         </div>
+
+        <a href="https://raw.githubusercontent.com/brinkmanlab/exposomeglobe/master/data/sample_small.csv?token=AI7O3IS7RRGKDBJTGIFAULK6MXEO2" download>Sample file</a>
 
         <div id="chartdiv" style={{ width: "100%", height: "875px" }}></div>
       </div>
