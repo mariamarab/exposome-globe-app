@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a96d3158f51c178c962687c7b3ef7948",
+    "revision": "b16306901321cdb40a14f47f501c285d",
     "url": "/exposome-globe-app/index.html"
   },
   {
-    "revision": "d15f40ea5ebc721fb4b4",
+    "revision": "46d0772b84315b091ffd",
     "url": "/exposome-globe-app/static/css/main.d1b05096.chunk.css"
   },
   {
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/exposome-globe-app/static/js/6.1a398a86.chunk.js"
   },
   {
-    "revision": "d15f40ea5ebc721fb4b4",
-    "url": "/exposome-globe-app/static/js/main.4f410d2d.chunk.js"
+    "revision": "46d0772b84315b091ffd",
+    "url": "/exposome-globe-app/static/js/main.991b44e5.chunk.js"
   },
   {
     "revision": "93175700f6c1f7c81f95",
